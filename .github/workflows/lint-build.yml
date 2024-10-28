@@ -1,12 +1,13 @@
 name: Lint & build
-on:
-  workflow_dispatch:
-  push:
-    tags:
-      - v*
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: workflow_dispatch
+# on:
+#   workflow_dispatch:
+#   push:
+#     tags:
+#       - v*
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
 
 env:
   CACHE_KEY: 'hugo-hinode-template'
@@ -34,7 +35,7 @@ jobs:
       run: npm i
 
     - name: Lint the source files
-      run: npm run lint      
+      run: npm run lint
 
   build:
     needs: lint
